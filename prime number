@@ -1,0 +1,23 @@
+# Write a query to print all prime numbers less than or equal to 50. Print your result on a single line, and use the & character as your separator
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    elif num <= 3:
+        return True
+    elif num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def print_primes_up_to_n(n):
+    primes = [str(x) for x in range(2, n+1) if is_prime(x)]
+    print('&'.join(primes))
+
+# Example usage:
+n = 50  # Change this value to print prime numbers up to a different number
+print_primes_up_to_n(n)
